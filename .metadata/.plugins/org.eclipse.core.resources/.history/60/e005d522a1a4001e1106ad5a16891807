@@ -1,0 +1,22 @@
+package com.Xpath;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RediffMailRegistration {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver;
+	    String	applicationUrlAddress="//https://www.rediff.com/";
+		System.setProperty("webdriver.chrome.driver", "./webdriverfile/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get(applicationUrlAddress);
+		driver.manage().window().maximize();
+		
+		
+
+
+	}
+
+}

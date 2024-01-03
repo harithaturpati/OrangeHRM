@@ -1,0 +1,23 @@
+package com.ExcelOperator;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbookType;
+
+public class Excel_Read_MultipleTestData {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		FileInputStream excelTestDatafile=new FileInputStream("./src/com/ExcelOperatorsTest/selenium excel.xlsx");
+		//identify the workbook in the excel file
+		XSSFWorkbook workBook=new XSSFWorkbook(sheetTestDataFile);
+	XSSFSheet testDataSheet=workBook.getSheet("sheet1");
+	
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.Amazon;
+
+public class Amazon_WishList_Click {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

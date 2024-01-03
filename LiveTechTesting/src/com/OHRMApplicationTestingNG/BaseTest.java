@@ -1,0 +1,42 @@
+package com.OHRMApplicationTestingNG;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.Utility.Log;
+
+
+
+public class BaseTest {
+	
+	WebDriver driver;
+String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+@BeforeTest
+//Automation chrome Browser
+public  void applicationLaunch()
+{
+System.setProperty("webdriver.chrome.driver", "./webdriverfile/chromedriver.exe");
+driver=new ChromeDriver();
+Log.info("******Chromedriver Browser Launched*******");
+System.out.println("******Chromedriver Browser Launched*******");
+driver.get(applicationUrlAddress);
+System.out.println("Navigated to Time and Date Application ");
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+}
+
+@AfterTest
+public void applicationclose()
+{
+driver.quit();
+System.out.println("*****Application closed successfully*****");
+
+}
+
+
+
+}

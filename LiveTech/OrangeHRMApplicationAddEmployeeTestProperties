@@ -1,0 +1,2 @@
+WinWaitActive("Open")
+controlsend("Open","","

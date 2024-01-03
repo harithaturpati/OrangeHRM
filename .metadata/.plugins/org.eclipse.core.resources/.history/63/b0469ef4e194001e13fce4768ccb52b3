@@ -1,0 +1,41 @@
+package com.OHRM;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class orangehrmApplication2 {
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ChromeDriver driver;
+		 String applicationurladdress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+		 
+		System.setProperty("webdriver.chrome.driver","./webdriverfile/chromedriver.exe");
+		driver =new ChromeDriver();
+	driver.get(applicationurladdress);
+	//validation of loginpage 
+	 String expectedOrangeHRMTitle="OrangeHRM";
+	 System.out.println("the expected orangehrmapplicationtitle loginpage is :-"+expectedOrangeHRMTitle);
+	 String actualOrangeHRMTitle ="OrangeHRM";
+	System.out.println("the actual orangehrm title of login page is ;-"+actualOrangeHRMTitle);
+	if(actualOrangeHRMTitle.equals(actualOrangeHRMTitle)) {
+		System.out.println("orangehrmapplicationloginpage tiele matched-PASS");
+	}
+	else
+	{
+System.out.println("orangehrmapplicationloginpage tiele matched-PASS");
+	}
+//validation -loginpage
+	//expected urladdress-should have orangehrm4.2.0
+	String expectedOrangeHRMurlAddress="OrangeRM";
+	System.out.println("the expected orangehrmapplication url address is:-"+expectedOrangeHRMurlAddress);
+          String actualOrangeHRMapplicationurlAddress = "OrangeHRM";
+          System.out.println("the actual orange hrm application url address is:-"+actualOrangeHRMapplicationurlAddress);
+		if()
+          
+          
+	}
+}
+
+		

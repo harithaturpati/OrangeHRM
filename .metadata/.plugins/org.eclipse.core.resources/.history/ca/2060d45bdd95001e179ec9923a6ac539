@@ -1,0 +1,18 @@
+package com.linkTesting;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TSRTC_HomePage_DisplayLinkNames {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+WebDriver driver;
+System.setProperty("webdriver.chrome.driver","/webdriverfiles/chrome/driver.exe");
+driver =new ChromeDriver();
+  String TSRTCurladdress="https://www.tsrtconline.in/oprs-web/";
+  
+
+	}
+
+}

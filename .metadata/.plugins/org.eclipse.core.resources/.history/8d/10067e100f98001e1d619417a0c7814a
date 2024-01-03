@@ -1,0 +1,48 @@
+package com.ExcelOperators;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import sun.jvm.hotspot.gc.parallel.PSYoungGen;
+
+public class Excel_read_SingleTestData {
+	
+
+	public static void main(String[] args) throws IOException {
+	
+		FileInputStream excelTestDatafile=new FileInputStream("C:\\Users\\DELL\\Desktop\\selenium excel.xlsx");
+		//identify the workbook in the excel file
+		XSSFWorkbook workBook=new XSSFWorkbook(excelTestDatafile);
+XSSFSheet testDataSheet=workBook.getSheet("MultipleTestData");
+//in the sheet identify the number of active rows with the data
+int RowsCount=testDataSheet.getLastRowNum();
+//should go automatically to every active row
+for(int rowIndex=0;rowIndex<=RowsCount;rowIndex++)
+{
+	//should go to active row
+	Row row=testDataSheet.getRow(rowIndex);
+//going to an active row and identifying the number of active cells 
+	int rowofCellCount=row.getLastCellNum();
+	//going to an active row of its active cell
+	for(int rowofCellIndex=0;rowofCellIndex<rowofCellCount;rowofCellIndex++)
+	{
+		//going to active row of its active cell
+		Cell rowofCell=row.getCell(rowofCellIndex);
+		//get the data from the row of the cell
+		String data=rowofCell.getStringCellValue();
+		System.out.println(data+"|");
+	}
+}
+System.out.println();
+	}
+}
+
+	
+	
+	

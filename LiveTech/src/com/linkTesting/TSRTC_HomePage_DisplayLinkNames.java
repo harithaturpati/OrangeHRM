@@ -1,0 +1,38 @@
+package com.linkTesting;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TSRTC_HomePage_DisplayLinkNames {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	WebDriver driver;
+    String applicationurladdress="https://www.tsrtconline.in/oprs-web/";
+    System.setProperty("webdriver.chrome.driver","./webdriverfile/chromedriver.exe");
+    driver =new ChromeDriver();
+    System.out.println("******chromedriver launched successfully********");
+  driver.get(applicationurladdress);
+  System.out.println("navigated to TSRTC application");
+ By linksProperty=By.tagName("a");
+List <WebElement>tsrtc_HomePageLinks =driver.findElements(linksProperty);
+
+int tsrtc_HomePageLinksCount=tsrtc_HomePageLinks.size();
+System.out.println("The number of links on the TSRTC application HomePage is:-"+tsrtc_HomePageLinksCount);
+for(int index=0;index<tsrtc_HomePageLinksCount;index++)
+{
+	 String  linkName =tsrtc_HomePageLinks.get(index).getText();
+	System.out.println(index+""+" "+linkName);
+	
+}
+ driver.quit();
+     
+
+	}
+
+}

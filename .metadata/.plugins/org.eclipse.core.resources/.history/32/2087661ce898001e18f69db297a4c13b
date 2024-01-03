@@ -1,0 +1,24 @@
+package com.linkTesting;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TSRTC_HeaderBlock_LinksCount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver;
+	    String applicationurladdress="https://www.tsrtconline.in/oprs-web/";
+	    System.setProperty("webdriver.chrome.driver","./webdriverfile/chromedriver.exe");
+	    driver =new ChromeDriver();
+	    System.out.println("******chromedriver launched successfully********");
+	  driver.get(applicationurladdress);
+	  System.out.println("navigated to TSRTC application");
+	By tsrtc_HeaderBlockProperty=By.className("menu-wrap");
+	 WebElement tsrtc_HeaderBlock=driver.findElement(tsrtc_HeaderBlockProperty);
+
+	}
+
+}

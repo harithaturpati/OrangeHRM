@@ -1,0 +1,18 @@
+package com.ExcelOperators;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excel_read_SingleTestData {
+	public static void main(String[] args) throws IOException {
+	
+		FileInputStream excelTestDatafile=new FileInputStream("C:\\Users\\DELL\\Desktop\\selenium excel.xlsx");
+		//identify the workbook in the excel file
+		XSSFWorkbook workBook=new XSSFWorkbook(excelTestDatafile);
+		
+		
+	}
+}

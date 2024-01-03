@@ -1,0 +1,25 @@
+package com.Amazon;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Amazon_YourWhislist_Click {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// TODO Auto-generated method stub
+				WebDriver driver;
+				String applicationUrlAddress="https://amazon.in";
+				//Automation chrome Browser
+				System.setProperty("webdriver.chrome.driver", "./webdriverfile/chromedriver.exe");
+				driver=new ChromeDriver();
+				//navigating to OrageHRM application url address
+				driver.get(applicationUrlAddress);
+		     System.out.println("Chromedriver launched successfully");
+		     driver.get(applicationUrlAddress);
+		     System.out.println("Navigated to Amazon Application");
+		driver.manage().window().maximize();
+	}
+
+}

@@ -1,0 +1,27 @@
+package com.Xpath;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RediffMailRegistration {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver;
+	    String	applicationUrlAddress="https://www.rediff.com/";
+		System.setProperty("webdriver.chrome.driver", "./webdriverfile/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get(applicationUrlAddress);
+		driver.manage().window().maximize();
+		//<input type="text" onblur="fieldTrack(this);" 
+		//name="nameacd96172" value="" style="width:185px;" maxlength="61">
+//	By	fullNameproperty=By.xpath("name=\"nameacd961");
+	By	fullNameproperty=By.xpath("//*[starts-witjh@name,'name')]");
+        WebElement  fullName=driver.findElement(fullNameproperty);
+        fullName.sendKeys("Haritha"); 
+   
+	}
+
+}

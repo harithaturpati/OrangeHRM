@@ -1,0 +1,187 @@
+package com.OHRMApplicationTestingNG;
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Properties;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+
+
+public class OrangeHRMApplication_LoginTest extends BaseTest {
+	WebElement welcomeAdmin;
+	FileInputStream propertiesFile;
+	Properties properties;
+	Row testDataSheetRow;
+	
+	
+	@Test(priority=1,description="Validating orangeHRMApplication Loginpage")
+	
+	public void LoginPageValidationTest() throws IOException {
+		
+	//Expected title of the OrangeHRM application loginin page should be-OrangeHRM 
+	String expectedOrangeHRMApplicationloginpageTitle="orangeHRM";
+	System.out.println(" The expected Title of the OrangeHRMApplicatin loginin page is:- "+expectedOrangeHRMApplicationloginpageTitle);
+
+	//operation on the webpage
+	String actual_OrangeHRMApplicationloginpageTitle="orangeHRM";
+	System.out.println("the actual title of the OrangeHRMApplicatin loginin page is:-"+actual_OrangeHRMApplicationloginpageTitle);
+
+	if(actual_OrangeHRMApplicationloginpageTitle.equals(expectedOrangeHRMApplicationloginpageTitle))
+	{
+	System.out.println("OrangeHRMApplicationLoginPageTitle matched-PASS");	
+	}
+	else
+	{
+	System.out.println("OrangeHRMApplicationLoginPageTitle matched-FAIL");	
+
+		}
+	System.out.println();
+
+	//validating url Address
+	//Expected-orangeHRMApplicationUrl address should have a test orange-4.2.0.1
+	 String expectedOrangeHRMApplicationurladdress="orangehrm-4.2.0.1";
+	 System.out.println("the expected url address of OrangeHRM Application login page is :-"+expectedOrangeHRMApplicationurladdress);
+	 
+	 String actualOrangeHRMApplicationurladdress=driver.getCurrentUrl();
+	 System.out.println("the expected url address of OrangeHRM Application login page is :-"+actualOrangeHRMApplicationurladdress);
+	 
+	 if(actualOrangeHRMApplicationurladdress.contains(expectedOrangeHRMApplicationurladdress))
+	 {
+		 System.out.println("sucessfully navigated to orangehrm application login page-url address matched-PASS");
+	 }
+	 else
+	 {
+		 System.out.println("suceesfully navigated to orangehrm application login page -url address not matched-FAIL");
+	 } 
+
+	 propertiesFile=new FileInputStream("./src/com/OHRMApplicationTestingNG/OrangeHRMApplicationLoginPageProperties");
+	 properties=new Properties();
+	 properties.load(propertiesFile);
+	 
+	 
+	 //expected text-should be "login panel"
+	 String expectedorangeHRMApplicationLogInPageText="LOGIN Panel";
+	 System.out.println("the expected text of the OrangeHRMApplicationloginpage is:-"+expectedorangeHRMApplicationLogInPageText);
+
+ // <div id="logInPanelHeading">LOGIN Panel</div>
+	By  loginPanelTextProperty=By.id(properties.getProperty("orangeHRMApplicationLoginPageLoginPanelProperty"));
+	 
+	 WebElement orangeHRMApplicationLogInPage_logInPanel=driver.findElement(loginPanelTextProperty);
+	 
+	 
+	String actualorangeHRMApplicationLogInPageText=orangeHRMApplicationLogInPage_logInPanel.getText();
+	System.out.println("the actual text of the OrangeHRMApplicationloginpage is:-"+actualorangeHRMApplicationLogInPageText);
+	if(actualorangeHRMApplicationLogInPageText.equals(expectedorangeHRMApplicationLogInPageText))
+	{
+		System.out.println("OrangeHRMAplicatin login pagetext existing-PASS");
+	}
+	else
+	{
+		System.out.println("OrangeHRMAplicatin login pagetext not existing-FAIL");
+		
+		}
+	}
+	
+	
+	XSSFWorkbook workBook;
+	@Test(priority=2,description="Validating OrangeHRMApplicationLogin Functionality")
+	public void LoginTest() throws IOException
+	{
+		FileInputStream loginTestDataFile=new FileInputStream("./src/com/ExcelOperatorsTest/selenium excel.xlsx");
+		workBook=new XSSFWorkbook(loginTestDataFile);
+		 XSSFSheet loginTestdataSheet=workBook.getSheet("loginTestdata");
+		 testDataSheetRow=loginTestdataSheet.getRow(1);
+		 Cell  usernametestdatacell=testDataSheetRow.getCell(0);
+		 Cell  passwordtestdatacell=testDataSheetRow.getCell(1);
+		 String usernametestdata=usernametestdatacell.getStringCellValue();
+		 System.out.println(usernametestdata);
+		
+		
+		
+        
+ 		String passwordtestdata=passwordtestdatacell.getStringCellValue();
+        System.out.println("The password is :-"+passwordtestdata);
+        By usernameProperty=By.id(properties.getProperty("orangeHRMApplicationUserProperty"));
+		
+		WebElement userName=driver.findElement(usernameProperty); 
+		//Performing an operation on the identified webElement
+		userName.sendKeys(usernametestdata);
+       // <input name="txtPassword" id="txtPassword" autocomplete="off" type="password">
+        By passwordProperty=By.name(properties.getProperty("orangeHRMApplicationPasswordProperty")); 
+		WebElement password=driver.findElement(passwordProperty);
+		password.sendKeys(passwordtestdata); 
+		System.out.println(passwordtestdata);
+			
+		
+		By logInButtonProperty=By.className(properties.getProperty("orangeHRMApplicationlogInButtonProperty"));
+			WebElement logInButton=driver.findElement(logInButtonProperty);
+			logInButton.click();
+	}
+	
+	
+	
+		@Test(priority=3,description="Validating orangeHRMApplication HomePage")
+		public void OrangeHRMApplication_HomePageValidationTest() throws IOException
+		{
+			String expectedOrangeHRMApplicationHomePageText="Welcome";
+			System.out.println("The expected title of the OrangeHRMApplicationHomePage is:-"+expectedOrangeHRMApplicationHomePageText);
+		
+	   
+	//By welcomeAdminProperty=By.linkText("Welcome Admin");
+			By welComeAdminProperty=By.id(properties.getProperty("orangeHRMApplicationHomePageWelcomeAdminProperty"));
+			 welcomeAdmin=driver.findElement(welComeAdminProperty); 
+	  
+	  
+			 String actualorangeHRMApplicationHomePageText=welcomeAdmin.getText();
+			 System.out.println("The actual text of the OrangeHRMApplication HomePage is:-"+ actualorangeHRMApplicationHomePageText);
+			 if(actualorangeHRMApplicationHomePageText.contains(expectedOrangeHRMApplicationHomePageText))
+			{
+				System.out.println("succesfully to navigate to orangeHRMApplication Homepage-PASS");
+				Cell resultCell=testDataSheetRow.createCell(2);
+				resultCell.setCellValue("successfully to navigate to orangeHRMApplication Homepage-PASS");
+		// welcomeAdmin.click();
+			}
+			 else
+			 {
+				 System.out.println("failed to navigate to orangeHRMApplication Homepage-FAIL");
+				 Cell resultCell=testDataSheetRow.createCell(2);
+				 resultCell.setCellValue("Failed to navigate to orangeHRMApplication Homepage-FAIL");
+			// welcomeAdmin.click();
+			}
+			
+			 FileOutputStream loginTestResultFile=new FileOutputStream("./src/com/ExcelOperatorsTest/selenium excel.xlsx");
+				//identify the workbook in the excel file
+			workBook.write(loginTestResultFile);
+	}
+				@Test(priority=4,description="Validating orangeHRMApplication logout functionality")
+				public void LogoutTest()
+				{
+					
+					 welcomeAdmin.click();
+					By LogoutProperty=By.linkText(properties.getProperty("orangeHRMApplicationHomePageLogoutProperty"));
+					WebElement Logout=driver.findElement(LogoutProperty);
+					Logout.click();	
+					
+				}
+				
+				
+			
+	
+	}
+
+	
+	
+	
+
+

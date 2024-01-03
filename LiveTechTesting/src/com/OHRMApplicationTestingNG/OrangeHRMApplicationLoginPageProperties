@@ -1,0 +1,12 @@
+#OrangeHRMApplication Login Page LoginPanel element Locator is id
+orangeHRMApplicationLoginPageLoginPanelProperty=logInPanelHeading
+#UserName element locator is id
+orangeHRMApplicationUserProperty=txtUsername
+#passwordName element locator id id 
+orangeHRMApplicationPasswordProperty=txtPassword
+#login element locator className
+orangeHRMApplicationlogInButtonProperty=button
+#welComeAdmin element locator className
+orangeHRMApplicationHomePageWelcomeAdminProperty=welcome
+#Logout Element locator is linkText
+orangeHRMApplicationHomePageLogoutProperty=Logout

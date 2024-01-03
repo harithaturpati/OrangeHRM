@@ -1,0 +1,50 @@
+package com.OHRM;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class orangehrmApplication2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ChromeDriver driver;
+		String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+		
+		System.setProperty("webdriver.chrome.driver", "./webdriverfile/chromedriver.exe");
+		driver=new ChromeDriver();
+		//expected title-should be orangehrm
+		String expectedOrangeHRMApplicationloginpageTitle="OrangeHRM";
+		System.out.println(" The expected Title of the OrangeHRMApplicatin loginin page is:- "+expectedOrangeHRMApplicationloginpageTitle);
+
+	
+		String actual_OrangeHRMApplicationloginpageTitle="OrangeHRM";
+		System.out.println("the actual title of the OrangeHRMApplicatin loginin page is:-"+actual_OrangeHRMApplicationloginpageTitle);
+		if(actual_OrangeHRMApplicationloginpageTitle.equals(expectedOrangeHRMApplicationloginpageTitle))
+		{
+		System.out.println("OrangeHRMApplicationLoginPageTitle matched-PASS");	
+		}
+		else
+		{
+		System.out.println("OrangeHRMApplicationLoginPageTitle matched-FAIL");	
+
+			}
+		System.out.println();
+
+		//validation url Address
+		//Expected-orangeHRMApplicationUrl address should have a test orange-4.2.0.1
+		 String expectedOrangeHRMApplicationurladdress="OrangeHRM";
+		 System.out.println("the expected url address of OrangeHRM Application login page is :-"+expectedOrangeHRMApplicationurladdress);
+		 
+		 String actualOrangeHRMApplicationurladdress=driver.getCurrentUrl();
+		 System.out.println("the expected url address of OrangeHRM Application login page is :-"+actualOrangeHRMApplicationurladdress);
+		 
+		 if(actualOrangeHRMApplicationurladdress.contains(actualOrangeHRMApplicationurladdress)) {
+			 System.out.println("sucessfully navigated to orangehrm application login page-url address matched-PASS");
+		 }
+		 else
+		 {
+			 System.out.println("suceesfully navigated to orange hrm application login page -url address matched-FAIL");
+		 }
+		 }
+	}
+
+
